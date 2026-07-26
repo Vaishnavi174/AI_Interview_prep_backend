@@ -27,8 +27,7 @@ spring:
 
   ai:
     openrouter:
-     openrouter:
-     api-key: ${OPENROUTER_API_KEY}
+      api-key: ${OPENROUTER_API_KEY}
       chat:
         options:
           model: openrouter/free
