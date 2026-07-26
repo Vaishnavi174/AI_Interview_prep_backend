@@ -41,11 +41,12 @@ public class SecurityConfig {
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/auth/**").permitAll()
-                .requestMatchers("/h2-console/**").permitAll()
-                .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                .anyRequest().authenticated()
-            )
+            .requestMatchers("/").permitAll()
+            .requestMatchers("/api/auth/**").permitAll()
+            .requestMatchers("/h2-console/**").permitAll()
+            .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+            .anyRequest().authenticated()
+)
             .headers(headers -> headers.frameOptions(frame -> frame.disable())) // needed for h2-console
             .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
 
