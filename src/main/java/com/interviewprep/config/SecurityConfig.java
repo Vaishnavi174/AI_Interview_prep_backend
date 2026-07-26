@@ -41,7 +41,7 @@ public class SecurityConfig {
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
-            .requestMatchers("/").permitAll()
+            .requestMatchers("/", "/error").permitAll()
             .requestMatchers("/api/auth/**").permitAll()
             .requestMatchers("/h2-console/**").permitAll()
             .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
